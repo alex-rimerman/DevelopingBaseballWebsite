@@ -7,8 +7,22 @@ import { motion } from "framer-motion";
 import { products } from "@/lib/products";
 import Nav from "@/components/Nav";
 
+function getEmbedUrl(url: string): string | null {
+  const trimmed = url.trim();
+  if (trimmed.includes("youtube.com") || trimmed.includes("youtu.be/")) {
+    const match = trimmed.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+    return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=0` : null;
+  }
+  if (trimmed.includes("vimeo.com")) {
+    const match = trimmed.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    return match ? `https://player.vimeo.com/video/${match[1]}` : null;
+  }
+  return null;
+}
+
 function ProductVideo({ src, productName }: { src: string; productName: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const embedUrl = getEmbedUrl(src);
 
   const handleFullscreen = () => {
     const video = videoRef.current;
@@ -19,6 +33,20 @@ function ProductVideo({ src, productName }: { src: string; productName: string }
       video.requestFullscreen();
     }
   };
+
+  if (embedUrl) {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center bg-[#0a1628]">
+        <iframe
+          src={embedUrl}
+          title={productName}
+          className="absolute inset-0 w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-full flex items-center justify-center bg-[#0a1628]">

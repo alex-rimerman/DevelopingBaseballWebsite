@@ -24,7 +24,7 @@ export const products: Product[] = [
     price: 500, // $5.00
     priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ANALYZER_PERSONAL ?? "price_YOUR_ID_HERE",
     mode: "subscription",
-    video: "/appVideo.mov",
+    video: process.env.NEXT_PUBLIC_VIDEO_APP_URL ?? "/appVideo.mov",
     priceLabel: "$5/mo",
   },
   {
@@ -44,7 +44,7 @@ export const products: Product[] = [
     price: -1,
     priceId: "",
     mode: "payment",
-    video: "/TeamPortal.mov",
+    video: process.env.NEXT_PUBLIC_VIDEO_PORTAL_URL ?? "/TeamPortal.mov",
     contactForPricing: true,
   },
 ];
