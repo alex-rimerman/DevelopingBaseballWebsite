@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   description: "Developing Baseball helps players, coaches, and organizations unlock their potential with cutting-edge analytics, Stuff+ technology, and Trackman integration.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

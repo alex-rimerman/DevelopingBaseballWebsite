@@ -40,7 +40,7 @@ export default function PortalsPage() {
               className="sticky top-32 space-y-1"
             >
               <p className="text-[#ffd000] text-xs tracking-[0.4em] uppercase mb-6">Our Portals</p>
-              <nav className="flex lg:flex-col gap-2">
+              <nav className="flex flex-col sm:flex-row lg:flex-col gap-2">
                 <button
                   onClick={() => setActiveTab("facility")}
                   className={`w-full text-left px-6 py-4 rounded-sm text-sm font-semibold tracking-wider uppercase transition-all ${

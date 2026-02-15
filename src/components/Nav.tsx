@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navLinks = [
+const navLinks: { href: string; label: string; external?: boolean }[] = [
   { href: "/products", label: "Shop" },
   { href: "/portals", label: "Portals" },
   { href: "/#platform", label: "Platform" },
@@ -21,9 +21,9 @@ export default function Nav() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Developing Baseball" width={40} height={40} className="h-10 w-auto" />
-          <span className="font-display text-xl tracking-[0.2em] text-white">DEVELOPING BASEBALL</span>
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+          <Image src="/logo.png" alt="Developing Baseball" width={40} height={40} className="h-8 w-auto sm:h-10 shrink-0" />
+          <span className="font-display text-sm sm:text-xl tracking-[0.15em] sm:tracking-[0.2em] text-white truncate">DEVELOPING BASEBALL</span>
         </Link>
 
         {/* Desktop nav */}
