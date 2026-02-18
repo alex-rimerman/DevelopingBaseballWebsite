@@ -169,6 +169,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trusted By */}
+      <section id="trusted" className="py-16 px-6 relative border-t border-b border-white/10">
+        <div className="max-w-5xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#ffd000] text-sm tracking-[0.4em] uppercase mb-8 text-center"
+          >
+            Trusted By
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
+          >
+            <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200">
+              <Image src="/sju.png" alt="Saint Joseph's University" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+            </div>
+            <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
+              <div className="absolute inset-[-20%]">
+                <Image src="/Bpclogoclear.png" alt="Baseball Performance Center" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+              </div>
+            </div>
+            <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
+              <div className="absolute inset-[-15%]">
+                <Image src="/ascent_logo.png" alt="Ascent" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+              </div>
+            </div>
+            <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
+              <div className="absolute inset-[-20%]">
+                <Image src="/taclogonew.png" alt="Total Arm Care" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Our Team */}
       <section id="team" className="py-32 px-6 relative">
         <div className="max-w-6xl mx-auto">

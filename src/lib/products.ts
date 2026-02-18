@@ -13,6 +13,7 @@ export interface Product {
   image?: string;
   video?: string; // path to video file
   contactForPricing?: boolean; // show "Contact" instead of "Buy Now"
+  comingSoon?: boolean; // show "Coming Soon", button links to contact
   priceLabel?: string; // custom price display (e.g. "$5/mo Personal")
 }
 
@@ -21,21 +22,21 @@ export const products: Product[] = [
     id: "stuff-plus-analyzer-personal",
     name: "Stuff+ Analyzer App (Personal)",
     description: "Professional-grade pitch analytics in your pocket. Evaluate Stuff+, track your arsenal, and get insights used at the highest levels of the game.",
-    price: 500, // $5.00
-    priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ANALYZER_PERSONAL ?? "price_YOUR_ID_HERE",
+    price: 500,
+    priceId: "",
     mode: "subscription",
-    video: process.env.NEXT_PUBLIC_VIDEO_APP_URL ?? "/appVideo.mov",
-    priceLabel: "$5/mo",
+    video: process.env.NEXT_PUBLIC_VIDEO_APP_URL ?? "https://youtube.com/shorts/L9j1vhOAmvo",
+    comingSoon: true,
   },
   {
     id: "stuff-plus-analyzer-team",
     name: "Stuff+ Analyzer App (Team)",
     description: "Same powerful analytics for your whole team. Share insights, track multiple pitchers, and manage your organization's development.",
-    price: 2500, // $25.00
-    priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ANALYZER_TEAM ?? "price_YOUR_ID_HERE",
+    price: 2500,
+    priceId: "",
     mode: "subscription",
     image: "/appReport.jpeg",
-    priceLabel: "$25/mo",
+    comingSoon: true,
   },
   {
     id: "stuff-plus-portal",
@@ -44,7 +45,7 @@ export const products: Product[] = [
     price: -1,
     priceId: "",
     mode: "payment",
-    video: process.env.NEXT_PUBLIC_VIDEO_PORTAL_URL ?? "/TeamPortal.mov",
+    video: process.env.NEXT_PUBLIC_VIDEO_PORTAL_URL ?? "https://youtu.be/T9WXP1o5bUM",
     contactForPricing: true,
   },
 ];

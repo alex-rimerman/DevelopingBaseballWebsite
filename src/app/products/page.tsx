@@ -10,7 +10,7 @@ import Nav from "@/components/Nav";
 function getEmbedUrl(url: string): string | null {
   const trimmed = url.trim();
   if (trimmed.includes("youtube.com") || trimmed.includes("youtu.be/")) {
-    const match = trimmed.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+    const match = trimmed.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/);
     return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=0` : null;
   }
   if (trimmed.includes("vimeo.com")) {
@@ -74,6 +74,7 @@ function ProductVideo({ src, productName }: { src: string; productName: string }
 }
 
 function formatPrice(product: (typeof products)[0]) {
+  if (product.comingSoon) return "Coming Soon";
   if (product.contactForPricing) return "Contact for pricing";
   if (product.priceLabel) return product.priceLabel;
   if (product.price === 0) return "Free";
@@ -83,11 +84,17 @@ function formatPrice(product: (typeof products)[0]) {
   }).format(product.price / 100);
 }
 
+function getButtonLabel(product: (typeof products)[0], loadingId: string | null) {
+  if (product.comingSoon || product.contactForPricing) return "Contact Us";
+  if (loadingId === product.id) return "Loading...";
+  return "Subscribe";
+}
+
 export default function ProductsPage() {
   const [loadingId, setLoadingId] = useState<string | null>(null);
 
   const handleCheckout = async (product: (typeof products)[0]) => {
-    if (product.contactForPricing) {
+    if (product.comingSoon || product.contactForPricing) {
       window.location.href = "/contact";
       return;
     }
@@ -177,10 +184,10 @@ export default function ProductsPage() {
                     <span className="font-display text-2xl text-[#ffd000]">{formatPrice(product)}</span>
                     <button
                       onClick={() => handleCheckout(product)}
-                      disabled={loadingId === product.id && !product.contactForPricing}
+                      disabled={loadingId === product.id && !product.comingSoon && !product.contactForPricing}
                       className="px-6 py-3 bg-[#c41e3a] text-white font-semibold tracking-wider uppercase hover:bg-[#9e1830] transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-sm"
                     >
-                      {product.contactForPricing ? "Contact" : loadingId === product.id ? "Loading..." : "Subscribe"}
+                      {getButtonLabel(product, loadingId)}
                     </button>
                   </div>
                 </div>
