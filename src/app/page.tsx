@@ -185,8 +185,13 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
+            className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8"
           >
+            <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
+              <div className="absolute inset-[18%]">
+                <Image src="/maryland_logo.png" alt="Maryland" fill className="object-contain" sizes="(max-width: 768px) 50vw, 20vw" />
+              </div>
+            </div>
             <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200">
               <Image src="/sju.png" alt="Saint Joseph's University" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
             </div>
