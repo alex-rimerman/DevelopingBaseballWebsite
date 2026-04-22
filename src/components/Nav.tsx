@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks: { href: string; label: string; external?: boolean }[] = [
   { href: "/products", label: "Shop" },
   { href: "/portals", label: "Portals" },
-  { href: "/customer-portals", label: "My Portals" },
   { href: "/#platform", label: "Platform" },
   { href: "/#about", label: "About" },
   { href: "/#team", label: "Team" },

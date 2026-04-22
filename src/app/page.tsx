@@ -171,7 +171,7 @@ export default function Home() {
 
       {/* Trusted By */}
       <section id="trusted" className="py-16 px-6 relative border-t border-b border-white/10">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,29 +185,32 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8"
           >
             <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
               <div className="absolute inset-[18%]">
-                <Image src="/maryland_logo.png" alt="Maryland" fill className="object-contain" sizes="(max-width: 768px) 50vw, 20vw" />
+                <Image src="/maryland_logo.png" alt="Maryland" fill className="object-contain" sizes="(max-width: 768px) 50vw, 17vw" />
               </div>
             </div>
             <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200">
-              <Image src="/sju.png" alt="Saint Joseph's University" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+              <Image src="/sju.png" alt="Saint Joseph's University" fill className="object-contain" sizes="(max-width: 768px) 50vw, 17vw" />
+            </div>
+            <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200">
+              <Image src="/sacstate_logo.png" alt="Sacramento State" fill className="object-contain" sizes="(max-width: 768px) 50vw, 17vw" />
             </div>
             <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
               <div className="absolute inset-[-20%]">
-                <Image src="/Bpclogoclear.png" alt="Baseball Performance Center" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src="/Bpclogoclear.png" alt="Baseball Performance Center" fill className="object-contain" sizes="(max-width: 768px) 50vw, 17vw" />
               </div>
             </div>
             <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
               <div className="absolute inset-[-15%]">
-                <Image src="/ascent_logo.png" alt="Ascent" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src="/ascent_logo.png" alt="Ascent" fill className="object-contain" sizes="(max-width: 768px) 50vw, 17vw" />
               </div>
             </div>
             <div className="relative aspect-square rounded-lg bg-white p-6 border border-gray-200 overflow-hidden">
               <div className="absolute inset-[-20%]">
-                <Image src="/taclogonew.png" alt="Total Arm Care" fill className="object-contain" sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src="/taclogonew.png" alt="Total Arm Care" fill className="object-contain" sizes="(max-width: 768px) 50vw, 17vw" />
               </div>
             </div>
           </motion.div>
