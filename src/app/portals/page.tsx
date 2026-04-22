@@ -30,6 +30,12 @@ export default function PortalsPage() {
       <Nav />
 
       <div className="pt-32 pb-24 px-6">
+        <p className="text-center text-sm text-white/60 mb-10 max-w-2xl mx-auto">
+          Already have access?{" "}
+          <Link href="/customer-portals" className="text-[#ffd000] hover:underline font-semibold">
+            Open My Portals
+          </Link>
+        </p>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
           {/* Sidebar */}
           <aside className="lg:w-64 shrink-0">
