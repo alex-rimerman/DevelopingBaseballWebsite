@@ -9,6 +9,11 @@ export type PortalDefinition = {
   /** Server-only env key; when unset, `defaultUrl` is used */
   envUrlKey: string;
   defaultUrl: string;
+  /**
+   * Optional Tailwind classes on the logo image wrapper to normalize visual weight
+   * (source files vary in canvas padding and intrinsic size).
+   */
+  logoClassName?: string;
 };
 
 export const PORTAL_DEFINITIONS: PortalDefinition[] = [
@@ -18,6 +23,7 @@ export const PORTAL_DEFINITIONS: PortalDefinition[] = [
     subtitle: "University of Maryland",
     description: "Team dashboards, reports, and analytics for Maryland.",
     logo: "/maryland_logo.png",
+    logoClassName: "scale-[0.78]",
     envUrlKey: "SHINY_PORTAL_UMD_URL",
     defaultUrl: "https://developingbaseball.shinyapps.io/umd_portal/",
   },
@@ -27,6 +33,7 @@ export const PORTAL_DEFINITIONS: PortalDefinition[] = [
     subtitle: "Baseball Performance Center",
     description: "Facility analytics, session reports, Stuff+, and leaderboards.",
     logo: "/Bpclogoclear.png",
+    logoClassName: "scale-[1.42]",
     envUrlKey: "SHINY_PORTAL_BPC_URL",
     defaultUrl: "https://developingbaseball.shinyapps.io/bpc_portal/",
   },
@@ -36,6 +43,7 @@ export const PORTAL_DEFINITIONS: PortalDefinition[] = [
     subtitle: "Saint Joseph's University",
     description: "College team dashboards, player reports, and Trackman-backed insights.",
     logo: "/sju.png",
+    logoClassName: "scale-[1.08]",
     envUrlKey: "SHINY_PORTAL_SJU_URL",
     defaultUrl: "https://developingbaseball.shinyapps.io/sju_portal/",
   },
@@ -45,6 +53,7 @@ export const PORTAL_DEFINITIONS: PortalDefinition[] = [
     subtitle: "Sacramento State",
     description: "Hornets team portal and pitching analytics.",
     logo: "/sacstate_logo.png",
+    logoClassName: "scale-[1.06]",
     envUrlKey: "SHINY_PORTAL_SACSTATE_URL",
     defaultUrl: "https://developingbaseball.shinyapps.io/sacstate_portal11/",
   },
@@ -54,6 +63,7 @@ export const PORTAL_DEFINITIONS: PortalDefinition[] = [
     subtitle: "Total Arm Care",
     description: "Arm care and performance tracking for athletes and programs.",
     logo: "/taclogonew.png",
+    logoClassName: "scale-[1.12]",
     envUrlKey: "SHINY_PORTAL_TAC_URL",
     defaultUrl: "https://developingbaseball.shinyapps.io/tac_portal/",
   },
@@ -63,6 +73,7 @@ export const PORTAL_DEFINITIONS: PortalDefinition[] = [
     subtitle: "Ascent",
     description: "Athlete-facing analytics and development tools.",
     logo: "/ascent_logo.png",
+    logoClassName: "scale-[1.52]",
     envUrlKey: "SHINY_PORTAL_ASCENT_URL",
     defaultUrl: "https://developingbaseball.shinyapps.io/ascent_athlete/",
   },
@@ -86,6 +97,7 @@ export type PortalCardPayload = {
   description: string;
   logo: string | null;
   logoInitials?: string;
+  logoClassName?: string;
   url: string | null;
 };
 
@@ -97,6 +109,7 @@ export function buildPortalCards(includeUrls: boolean): PortalCardPayload[] {
     description: p.description,
     logo: p.logo,
     logoInitials: p.logoInitials,
+    logoClassName: p.logoClassName,
     url: includeUrls ? resolvePortalUrl(p.envUrlKey, p.defaultUrl) : null,
   }));
 }

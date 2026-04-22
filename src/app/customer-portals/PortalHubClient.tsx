@@ -107,9 +107,11 @@ export default function PortalHubClient({
                 transition={{ duration: 0.4, delay: 0.05 * i }}
                 className="flex flex-col rounded-lg border border-white/10 bg-[#132238]/60 overflow-hidden hover:border-[#c41e3a]/40 transition-colors"
               >
-                <div className="relative h-36 bg-white p-6 flex items-center justify-center">
+                <div className="relative h-40 bg-white flex items-center justify-center overflow-hidden">
                   {portal.logo ? (
-                    <div className="relative w-full h-full max-h-24">
+                    <div
+                      className={`relative mx-auto h-[7.5rem] w-[88%] max-w-[15rem] origin-center ${portal.logoClassName ?? ""}`}
+                    >
                       <Image
                         src={portal.logo}
                         alt=""
